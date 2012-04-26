@@ -1,5 +1,6 @@
 <!--
-  ~ Copyright 2010 Pieter van der Meer (pieter(at)pieni.nl)
+  ~ Copyright (C) 2010 Jan-Kees van Andel.
+  ~ Copyright 2012 Pieter van der Meer (pieter(at)elucidator.nl)
   ~
   ~ Licensed under the Apache License, version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -25,7 +26,7 @@
 
     <groupId>nl.elucidator.patterns.builder.annotations</groupId>
     <artifactId>builder-annotations-root</artifactId>
-    <version>0.9-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Builder annotations</name>
@@ -57,5 +58,77 @@
             </roles>
         </developer>
     </developers>
+
+    <modules>
+        <module>annotations</module>
+        <module>processor</module>
+        <module>test</module>
+    </modules>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.jvnet.wagon-svn</groupId>
+                <artifactId>wagon-svn</artifactId>
+                <version>1.9</version>
+            </extension>
+        </extensions>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Module dependencies -->
+            <dependency>
+                <groupId>nl.elucidator.patterns.builder.annotations</groupId>
+                <artifactId>builder-annotations</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>nl.elucidator.patterns.builder.annotations</groupId>
+                <artifactId>builder-annotations-processor</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>nl.elucidator.patterns.builder.annotations</groupId>
+                <artifactId>builder-annotations-test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Test dependencies -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.7</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- Compile dependencies -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.4.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>1.4.2</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>2.3.16</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     </project>
