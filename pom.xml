@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
-        <version>5</version>
+        <version>7</version>
     </parent>
 
     <groupId>nl.elucidator.patterns.builder.annotations</groupId>
@@ -44,9 +44,10 @@
     </licenses>
     <scm>
         <connection>scm:git:git@github.com:elucidator/builder-annotations.git</connection>
-        <url>https://github.com/elucidator/builder-annotations</url>
+        <url>git@github.com:elucidator/builder-annotations.git</url>
       <developerConnection>scm:git:elucidator/builder-annotations.git</developerConnection>
   </scm>
+
 
     <developers>
         <developer>
