@@ -19,6 +19,7 @@ package org.jkva.makebuilder.test.runner;
 import nl.elucidator.patterns.builder.annotations.test.Address;
 import nl.elucidator.patterns.builder.annotations.test.ImmutableInterfaceTest;
 import nl.elucidator.patterns.builder.annotations.test.Person;
+import  nl.elucidator.patterns.builder.annotations.test.ImmutableInterfaceTestImpl;
 
 import org.junit.Test;
 
