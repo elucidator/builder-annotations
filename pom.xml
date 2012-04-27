@@ -44,7 +44,7 @@
     </licenses>
     <scm>
         <connection>scm:git:git@github.com:elucidator/builder-annotations.git</connection>
-        <url>https://elucidator@github.com:elucidator/builder-annotations.git</url>
+        <url>scm:git:git@github.com:elucidator/builder-annotations.gi</url>
       <developerConnection>scm:git:elucidator/builder-annotations.git</developerConnection>
   </scm>
 
