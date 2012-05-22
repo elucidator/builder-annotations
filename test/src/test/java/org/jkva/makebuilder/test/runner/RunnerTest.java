@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2010 Jan-Kees van Andel.
+ * Copyright (C) 2012 Pieter van der Meer (pieter(at)elucidator.nl)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +19,8 @@ package org.jkva.makebuilder.test.runner;
 
 import nl.elucidator.patterns.builder.annotations.test.Address;
 import nl.elucidator.patterns.builder.annotations.test.ImmutableInterfaceTest;
+import nl.elucidator.patterns.builder.annotations.test.ImmutableInterfaceTestImpl;
 import nl.elucidator.patterns.builder.annotations.test.Person;
-import  nl.elucidator.patterns.builder.annotations.test.ImmutableInterfaceTestImpl;
-
 import org.junit.Test;
 
 import java.util.Random;
