@@ -49,10 +49,12 @@ public final class ClassProperty {
      */
     boolean required;
 
+
     // ++++++++++++++++++ Used by FreeMarker BEGIN ++++++++++++++++++
 
     /**
      * Get the name.
+     *
      * @return The name.
      */
     public String getName() {
@@ -61,6 +63,7 @@ public final class ClassProperty {
 
     /**
      * Get the type.
+     *
      * @return The type.
      */
     public String getType() {
@@ -69,6 +72,7 @@ public final class ClassProperty {
 
     /**
      * Get the getter.
+     *
      * @return The getter.
      */
     public String getGetter() {
@@ -77,6 +81,7 @@ public final class ClassProperty {
 
     /**
      * Get the setter.
+     *
      * @return The setter.
      */
     public String getSetter() {
@@ -86,5 +91,37 @@ public final class ClassProperty {
     public boolean isRequired() {
         return required;
     }
+
+    public CollectionType getCollectionType() {
+        if (type.startsWith(java.util.Set.class.getCanonicalName())) {
+            return CollectionType.SET;
+        }
+        if (type.startsWith(java.util.List.class.getCanonicalName())) {
+            return CollectionType.LIST;
+        }
+        if (type.startsWith(java.util.Map.class.getCanonicalName())) {
+            return CollectionType.MAP;
+        }
+        if (type.startsWith(java.util.SortedSet.class.getCanonicalName())) {
+            return CollectionType.SORTED_SET;
+        }
+        if (type.startsWith(java.util.SortedMap.class.getCanonicalName())) {
+            return CollectionType.SORTED_MAP;
+        }
+
+        return CollectionType.NONE;
+    }
     // ------------------ Used by FreeMarker END ------------------
+
+
+    @Override
+    public String toString() {
+        return "ClassProperty{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", getter='" + getter + '\'' +
+                ", setter='" + setter + '\'' +
+                ", required=" + required +
+                '}';
+    }
 }

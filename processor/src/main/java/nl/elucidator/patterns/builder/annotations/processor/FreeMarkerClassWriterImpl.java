@@ -17,25 +17,22 @@
 
 package nl.elucidator.patterns.builder.annotations.processor;
 
-import freemarker.template.Configuration;
-import freemarker.template.DefaultObjectWrapper;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
+import freemarker.ext.beans.BeansWrapper;
+import freemarker.template.*;
 
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.tools.JavaFileObject;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * FreeMarker implementation of the class writer.
- *
- * $Author: jankeesvanandel $
- * $Revision: 106 $
  */
 public class FreeMarkerClassWriterImpl implements ClassWriter {
 
@@ -64,7 +61,7 @@ public class FreeMarkerClassWriterImpl implements ClassWriter {
 
         List<ClassProperty> required = new ArrayList<ClassProperty>();
         List<ClassProperty> optional = new ArrayList<ClassProperty>();
-        for(ClassProperty property : properties) {
+        for (ClassProperty property : properties) {
             if (property.isRequired()) {
                 required.add(property);
             } else {
@@ -74,6 +71,16 @@ public class FreeMarkerClassWriterImpl implements ClassWriter {
         root.put("required", required.toArray(new ClassProperty[]{}));
         root.put("optional", optional.toArray(new ClassProperty[]{}));
         root.put("generatorClass", MakeBuilderProcessor.class);
+
+        BeansWrapper wrapper = BeansWrapper.getDefaultInstance();
+        TemplateHashModel enumModels = wrapper.getEnumModels();
+        try {
+            TemplateHashModel collectionsType =
+                    (TemplateHashModel) enumModels.get(CollectionType.class.getCanonicalName());
+            root.put("CollectionType", collectionsType);
+        } catch (TemplateModelException e) {
+            throw new RuntimeException("Error loading template", e);
+        }
 
         return root;
     }
