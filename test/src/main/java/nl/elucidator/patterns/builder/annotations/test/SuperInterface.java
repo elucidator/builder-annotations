@@ -22,9 +22,6 @@ import net.jcip.annotations.Immutable;
 
 /**
  * This super interface is used to test type hierarchies.
- *
- * $Author: jankeesvanandel $
- * $Revision: 106 $
  */
 @Immutable
 public interface SuperInterface {

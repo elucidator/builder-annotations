@@ -19,9 +19,6 @@ package nl.elucidator.patterns.builder.annotations.test;
 
 /**
  * Simple enum to test enum support.
- *
- * $Author: jankeesvanandel $
- * $Revision: 21 $
  */
 public enum Country {
     NETHERLANDS,

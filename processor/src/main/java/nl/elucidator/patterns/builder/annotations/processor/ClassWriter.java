@@ -21,16 +21,13 @@ import javax.annotation.processing.ProcessingEnvironment;
 
 /**
  * Interface for class generation.
- *
- * $Author: jankeesvanandel $
- * $Revision: 106 $
  */
 public interface ClassWriter {
 
     /**
      * Generate a valid implementation Java source file for the given immutable type.
      *
-     * @param metaData The Cass metadata.
+     * @param metaData      The Cass metadata.
      * @param processingEnv The current processing environment.
      */
     void generateBuilder(ClassMetaData metaData, ProcessingEnvironment processingEnv);

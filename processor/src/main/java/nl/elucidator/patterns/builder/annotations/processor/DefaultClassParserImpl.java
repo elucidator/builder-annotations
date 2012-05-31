@@ -33,9 +33,6 @@ import java.util.Set;
 
 /**
  * Default implementation of {ClassParser}.
- * <p/>
- * $Author$
- * $Revision$
  */
 public class DefaultClassParserImpl implements ClassParser {
     /**
@@ -76,6 +73,10 @@ public class DefaultClassParserImpl implements ClassParser {
             return null;
         }
     };
+
+    /**
+     * Verifies if the class has  the {@link Immutable} annotation
+     */
     private static final SimpleTypeVisitor6<Boolean, Object> IMMUTABLE_VISITOR = new SimpleTypeVisitor6<Boolean, Object>() {
         @Override
         public Boolean visitDeclared(final DeclaredType t, final Object o) {
@@ -83,6 +84,7 @@ public class DefaultClassParserImpl implements ClassParser {
             return (immutable != null);
         }
     };
+
     /**
      * Visitor to determine the return type of the method.
      */

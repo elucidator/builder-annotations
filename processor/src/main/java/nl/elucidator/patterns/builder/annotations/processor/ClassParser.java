@@ -21,9 +21,6 @@ import javax.lang.model.element.TypeElement;
 
 /**
  * This class is responsible for reading all necessary information from a given Java class.
- *
- * $Author$
- * $Revision$
  */
 public interface ClassParser {
 

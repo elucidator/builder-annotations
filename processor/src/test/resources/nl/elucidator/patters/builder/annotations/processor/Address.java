@@ -15,16 +15,17 @@
  * limitations under the License.
  */
 
-package nl.elucidator.patterns.builder.annotations.test;
+package nl.elucidator.patters.builder.annotations.processor;
 
 import net.jcip.annotations.Immutable;
-import nl.elucidator.patterns.builder.annotations.Required;
+
+import java.util.List;
 
 /**
  * An address for testing.
  */
 @Immutable
-public interface AddressWithRequired extends SuperInterface {
+public interface Address {
     String getStreet();
 
     int getNumber();
@@ -33,6 +34,6 @@ public interface AddressWithRequired extends SuperInterface {
 
     String getCity();
 
-    @Required
-    Country getCountry();
+    List<String> testMethods();
+
 }

@@ -31,8 +31,6 @@ import java.util.Set;
  * <p/>
  * This class is used to bootstrap the generation process.
  * <p/>
- * $Author: jankeesvanandel $
- * $Revision: 106 $
  */
 @SupportedAnnotationTypes({MakeBuilderProcessor.JCIP_IMMUTABLE})
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
@@ -70,17 +68,6 @@ public class MakeBuilderProcessor extends AbstractProcessor {
         classWriter = new FreeMarkerClassWriterImpl();
     }
 
-    /**
-     * Only used for testing.
-     *
-     * @param classParser The user specified ClassParser.
-     * @param classWriter The user specified ClassWriter.
-     */
-    public MakeBuilderProcessor(ClassParser classParser, ClassWriter classWriter) {
-        this.classParser = classParser;
-        this.classWriter = classWriter;
-    }
-
     @Override
     public void init(ProcessingEnvironment processingEnv) {
         super.init(processingEnv);
@@ -91,11 +78,13 @@ public class MakeBuilderProcessor extends AbstractProcessor {
      */
     @Override
     public boolean process(final Set<? extends TypeElement> annotations, final RoundEnvironment env) {
-        processingEnv.getMessager().printMessage(Diagnostic.Kind.WARNING, "1");
+        processingEnv.getMessager().printMessage(Diagnostic.Kind.WARNING, "Starting process");
         for (final TypeElement type : annotations) {
             for (final Element element : env.getElementsAnnotatedWith(type)) {
                 if (shouldProcessType(element)) {
+                    processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "Generating for: " + element);
                     generate((TypeElement) element, processingEnv);
+                    processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "Generating done");
                 }
             }
         }

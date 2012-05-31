@@ -20,12 +20,10 @@ package nl.elucidator.patterns.builder.annotations.test;
 import net.jcip.annotations.Immutable;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Test object with many properties, used for API polishing.
- *
- * $Author: jankeesvanandel $
- * $Revision: 106 $
  */
 @Immutable
 public interface Person {
@@ -42,4 +40,6 @@ public interface Person {
     Address getAddress();
 
     Company getEmployer();
+
+    List<String> getListType();
 }

@@ -21,9 +21,6 @@ import net.jcip.annotations.Immutable;
 
 /**
  * An address for testing.
- *
- * $Author: jankeesvanandel $
- * $Revision: 106 $
  */
 @Immutable
 public interface Address extends SuperInterface {

@@ -24,9 +24,6 @@ import java.util.Set;
 
 /**
  * A company object with some special types for testing.
- *
- * $Author: jankeesvanandel $
- * $Revision: 106 $
  */
 @Immutable
 public interface Company {

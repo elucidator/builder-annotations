@@ -36,9 +36,6 @@ import static org.junit.Assert.assertNotSame;
 
 /**
  * This runner is used as a simple concurrency test.
- *
- * $Author: jankeesvanandel $
- * $Revision: 106 $
  */
 public class RunnerTest {
     private static final AtomicReference<Person> P = new AtomicReference<Person>();
@@ -93,11 +90,9 @@ public class RunnerTest {
             try {
                 START.await();
                 runBatch();
-            }
-            catch (InterruptedException e) {
+            } catch (InterruptedException e) {
                 Thread.interrupted();
-            }
-            finally {
+            } finally {
                 STOP.countDown();
             }
         }
@@ -215,7 +210,7 @@ public class RunnerTest {
 //
 //        setUpData.random = new Random();
 //        return setUpData;
-        return  null;
+        return null;
     }
 
     @Test

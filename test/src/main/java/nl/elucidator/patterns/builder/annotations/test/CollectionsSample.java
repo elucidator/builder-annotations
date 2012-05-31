@@ -17,22 +17,27 @@
 
 package nl.elucidator.patterns.builder.annotations.test;
 
+
 import net.jcip.annotations.Immutable;
-import nl.elucidator.patterns.builder.annotations.Required;
 
-/**
- * An address for testing.
- */
+import java.util.*;
+
 @Immutable
-public interface AddressWithRequired extends SuperInterface {
-    String getStreet();
+public interface CollectionsSample {
 
-    int getNumber();
+    List<String> getListString();
 
-    String getSuffix();
+    Set<String> getSetString();
 
-    String getCity();
+    Map<String, Object> getMapStringObject();
 
-    @Required
-    Country getCountry();
+    SortedMap<String, Object> getSortedMapStringObject();
+
+    SortedSet<String> getSortedSet();
+
+    String getString();
+
+    int getIntType();
+
+
 }
