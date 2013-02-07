@@ -15,12 +15,9 @@
  * limitations under the License.
  */
 
-package org.jkva.makebuilder.test.runner;
+package nl.elucidator.patterns.builder.annotations.test;
 
-import nl.elucidator.patterns.builder.annotations.test.Address;
-import nl.elucidator.patterns.builder.annotations.test.ImmutableInterfaceTest;
 import nl.elucidator.patterns.builder.annotations.test.ImmutableInterfaceTestImpl;
-import nl.elucidator.patterns.builder.annotations.test.Person;
 import org.junit.Test;
 
 import java.util.Random;
@@ -212,6 +209,7 @@ public class RunnerTest {
 //        return setUpData;
         return null;
     }
+
 
     @Test
     public void testRunner() {

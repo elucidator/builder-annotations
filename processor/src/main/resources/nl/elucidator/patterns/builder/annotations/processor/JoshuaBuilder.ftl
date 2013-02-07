@@ -17,18 +17,37 @@
 <#macro returnmethod element>
     <#switch element.collectionType>
         <#case CollectionType.SET>
+        if (${element.name} == null) {
+        return java.util.Collections.unmodifiableSet(java.util.Collections.EMPTY_SET);
+        }
         return java.util.Collections.unmodifiableSet(${element.name});
             <#break>
         <#case CollectionType.LIST>
+        if (${element.name} == null) {
+        return java.util.Collections.unmodifiableList(java.util.Collections.EMPTY_LIST);
+        }
         return java.util.Collections.unmodifiableList(${element.name});
             <#break>
         <#case CollectionType.MAP>
+        if (${element.name} == null) {
+        return java.util.Collections.unmodifiableMap(java.util.Collections.EMPTY_MAP);
+        }
         return java.util.Collections.unmodifiableMap(${element.name});
             <#break>
         <#case CollectionType.SORTED_MAP>
+        if (${element.name} == null) {
+        @SuppressWarnings("unchecked")
+        ${element.type} temp = java.util.Collections.unmodifiableSortedMap((${element.type})java.util.Collections.EMPTY_MAP);
+        return temp;
+        }
         return java.util.Collections.unmodifiableSortedMap(${element.name});
             <#break>
         <#case CollectionType.SORTED_SET>
+        if (${element.name} == null) {
+        @SuppressWarnings("unchecked")
+        ${element.type} temp = java.util.Collections.unmodifiableSortedSet((${element.type})java.util.Collections.EMPTY_SET);
+        return temp;
+        }
         return java.util.Collections.unmodifiableSortedSet(${element.name});
             <#break>
         <#case CollectionType.NONE>
